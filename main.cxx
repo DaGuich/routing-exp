@@ -57,5 +57,12 @@ int main(int argc, char *argv[])
               << (sizeof(Point)) << " = "
               << (g.m_points.size() * sizeof(Point)) / 1024 << " R "
               << (g.m_points.size() * sizeof(Point)) % 1024 << std::endl;
+
+    AStar router(&g);
+    auto path = router.route(0, 99);
+    for (auto point : path)
+    {
+        std::cout << point << " ";
+    }
     return 0;
 }
